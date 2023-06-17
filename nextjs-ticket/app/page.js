@@ -36,51 +36,40 @@ export default function Home() {
       [0, 0],
     ],
   ];
-  const [name, setName] = useState("");
-  const [selected, setSelected] = useState([]);
+  if (typeof window !== "undefined") {
+    const [name, setName] = useState(localStorage.getItem("name"));
+    const [seats, setSeats] = useState(localStorage.getItem("seats"));
+  } else {
+    const [name, setName] = useState("");
+    const [seats, setSeats] = useState(0);
+  }
 
-  useEffect(() => {
-    const localName = localStorage.getItem("name");
-    if (localName) {
-      setName(decodeURIComponent(localName));
+  function clickSeat(seat) {
+    if (name) {
+      window.alert("이미 자리를 예약하셨습니다.");
     } else {
-      const getName = () => {
+      const getName = (seat) => {
         const inputName = window.prompt("이름을 입력해주세요: ");
         if (inputName) {
           localStorage.setItem("name", inputName);
-          setName(encodeURIComponent(inputName));
+          setName(inputName);
+          localStorage.setItem("seats", seat);
+          setSeats(seat);
         } else {
           window.alert("이름이 입력되지 않았습니다.");
-          getName();
+          getName(seat);
         }
       };
-      getName();
+      getName(seat);
     }
-  }, []);
+  }
 
-  const clickSeat = () => {};
   return (
     <div className={styles.container}>
       <div className={styles.page}>
         <div className={styles.nav}>
-          <div className={styles.active}>
-            {!!name ? (
-              <div className={styles.name}>{name}</div>
-            ) : (
-              <>
-                <input
-                  className={styles.typebox}
-                  type="text"
-                  id="name-input"
-                  placeholder="이름을 입력하세요"
-                />
-                <div className={styles.btns}>
-                  <button className={styles.btn}>로그인</button>
-                  <button className={styles.btn}>삭제</button>
-                </div>
-              </>
-            )}
-          </div>
+          {/* {!!name ? <div className={styles.name}>{name}</div> : <div></div>} */}
+
           <div className={styles.board}>칠판</div>
         </div>
         <main className={styles.main}>
@@ -96,9 +85,9 @@ export default function Home() {
                               <div
                                 className={styles.seat}
                                 key={seatIndex}
-                                onClick={clickSeat()}
+                                onClick={() => clickSeat(seat)}
                               >
-                                {seat}
+                                {seat == seats ? name : seat}
                               </div>
                             )
                         )}
@@ -110,9 +99,9 @@ export default function Home() {
                           <div
                             className={styles.seat}
                             key={seatIndex}
-                            onClick={clickSeat()}
+                            onClick={() => clickSeat(seat)}
                           >
-                            {seat}
+                            {seat == seats ? name : seat}
                           </div>
                         )}
                       </div>
