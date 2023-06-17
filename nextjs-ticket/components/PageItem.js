@@ -65,7 +65,6 @@ export default function PageItem() {
           setSeats(seat);
         } else {
           window.alert("이름이 입력되지 않았습니다.");
-          getName(seat);
         }
       };
       getName(seat);
@@ -83,7 +82,9 @@ export default function PageItem() {
                     (seat, seatIndex) =>
                       seat !== 0 && (
                         <div
-                          className={styles.seat}
+                          className={`${styles.seat} ${
+                            seat == seats ? styles.selected : ""
+                          }`}
                           key={seatIndex}
                           onClick={() => clickSeat(seat)}
                         >

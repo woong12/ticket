@@ -1,0 +1,51 @@
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup_content {
+  background-color: #fefefe;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 200px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.popup_content h2 {
+  margin-top: 0;
+}
+
+.popup_content button {
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #9575de;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.popup_content button:hover {
+  transform: scale(1.1);
+}
+
+.passwordInput {
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  background-color: white;
+  outline: none;
+
+  padding: 0.5rem 1rem;
+}
