@@ -12,9 +12,6 @@ body {
   align-items: center;
   padding: 50px;
 }
-.user_info {
-}
-
 .page {
   background-color: white;
   box-shadow: 0px 0px 40px 0.5px rgba(0, 0, 0, 0.4);
@@ -169,6 +166,11 @@ main {
     font-size: 1.2rem;
   }
 }
+
+/* -- */
+/* -- */
+/* -- */
+
 .popup {
   display: flex;
   justify-content: center;
@@ -223,3 +225,6 @@ main {
   font-size: 26px;
   font-weight: 600;
 }
+/* -- */
+/* -- */
+/* -- */
