@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Seat</title>
+  </head>
+  <body>
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+        <h2>사용자 선택</h2>
+        <button onclick="selectRole('student')">학생</button>
+        <button onclick="showAdminPasswordInput()">관리자</button>
+        <div id="adminPasswordInput" style="display: none">
+          <input
+            class="passwordInput"
+            type="password"
+            id="passwordField"
+            placeholder="비밀번호 입력"
+          />
+          <button onclick="checkAdminPassword()">확인</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="button"></div>
+    <div class="container">
+      <div class="page">
+        <div class="active">
+          <input
+            class="typebox"
+            type="text"
+            id="name-input"
+            placeholder="이름을 입력하세요"
+          />
+          <div class="btns">
+            <button class="btn">로그인</button>
+            <button class="btn">삭제</button>
+          </div>
+        </div>
+        <div class="board">칠판</div>
+
+        <main>
+          <div class="main_seats">
+            <div class="line">
+              <div class="row">
+                <div class="seat" data-seat-id="1">1</div>
+              </div>
+              <div class="row"></div>
+              <div class="row">
+                <div class="seat" data-seat-id="14">14</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="21">21</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="28">28</div>
+              </div>
+              <div class="row"></div>
+              <div class="row">
+                <div class="seat" data-seat-id="40">40</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="45">45</div>
+              </div>
+            </div>
+
+            <div class="line">
+              <div class="row">
+                <div class="seat" data-seat-id="2">2</div>
+                <div class="seat" data-seat-id="3">3</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="8">8</div>
+                <div class="seat" data-seat-id="9">9</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="15">15</div>
+                <div class="seat" data-seat-id="16">16</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="22">22</div>
+                <div class="seat" data-seat-id="23">23</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="29">29</div>
+                <div class="seat" data-seat-id="30">30</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="35">35</div>
+                <div class="seat" data-seat-id="36">36</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="41">41</div>
+                <div class="seat" data-seat-id="42">42</div>
+              </div>
+            </div>
+
+            <div class="line">
+              <div class="row">
+                <div class="seat" data-seat-id="4">4</div>
+                <div class="seat" data-seat-id="5">5</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="10">10</div>
+                <div class="seat" data-seat-id="11">11</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="17">17</div>
+                <div class="seat" data-seat-id="18">18</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="24">24</div>
+                <div class="seat" data-seat-id="25">25</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="31">31</div>
+                <div class="seat" data-seat-id="32">32</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="37">37</div>
+                <div class="seat" data-seat-id="38">38</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="43">43</div>
+                <div class="seat" data-seat-id="44">44</div>
+              </div>
+            </div>
+
+            <div class="line">
+              <div class="row">
+                <div class="seat" data-seat-id="6">6</div>
+                <div class="seat" data-seat-id="7">7</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="12">12</div>
+                <div class="seat" data-seat-id="13">13</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="19">19</div>
+                <div class="seat" data-seat-id="20">20</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="26">26</div>
+                <div class="seat" data-seat-id="27">27</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="33">33</div>
+                <div class="seat" data-seat-id="34">34</div>
+              </div>
+              <div class="row">
+                <div class="seat" data-seat-id="39">39</div>
+              </div>
+            </div>
+          </div>
+          <div class="door">출입문</div>
+        </main>
+      </div>
+
+      <div class="user-role">
+        <span id="userRoleText"></span>
+      </div>
+    </div>
+    <!-- Firebase SDK 로드 -->
+    <script src="script.js"></script>
+  </body>
+</html>
