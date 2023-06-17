@@ -36,13 +36,9 @@ export default function Home() {
       [0, 0],
     ],
   ];
-  if (typeof window !== "undefined") {
-    const [name, setName] = useState(localStorage.getItem("name"));
-    const [seats, setSeats] = useState(localStorage.getItem("seats"));
-  } else {
-    const [name, setName] = useState("");
-    const [seats, setSeats] = useState(0);
-  }
+
+  const [name, setName] = useState(localStorage.getItem("name"));
+  const [seats, setSeats] = useState(localStorage.getItem("seats"));
 
   function clickSeat(seat) {
     if (name) {
