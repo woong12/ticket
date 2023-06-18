@@ -14,12 +14,21 @@ export default async function handler(req, res) {
       const filter = { _id: new ObjectId("648de37c52547832ccd82bf2") };
       const update = { $push: { booked: body } };
       const options = { returnOriginal: false };
+      const check = await collection.find(filter, { _id: 0 });
+      console.log(check.value);
+      if (check.value.booked.includes(body)) {
+        res.status(404).json({ message: "동시 접속 오류" });
+      } else {
+        const result = await collection.findOneAndUpdate(
+          filter,
+          update,
+          options
+        );
 
-      const result = await collection.findOneAndUpdate(filter, update, options);
+        console.log("Modified document:", result.value);
 
-      console.log("Modified document:", result.value);
-
-      res.status(200).json({ message: "Book list saved to MongoDB!" });
+        res.status(200).json({ message: "Book list saved to MongoDB!" });
+      }
     } catch (error) {
       console.error("Error saving book list to MongoDB:", error);
       res.status(500).json({ message: "Failed to save book list to MongoDB." });
