@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import styles from "./pageItem.module.css";
+import Seat from "./Seat";
 
-export default function PageItem() {
+export default function PageItem({ bookedSeat, nameSeat }) {
   const seatLayout = [
     [1, 0, 14, 21, 28, 0, 40, 45],
     [
@@ -37,31 +38,86 @@ export default function PageItem() {
       [0, 0],
     ],
   ];
-
+  for (let i = 0; i < bookedSeat.length; i++) {
+    bookedSeat[i] = Number(bookedSeat[i]);
+  }
   const [name, setName] = useState("");
-  const [seats, setSeats] = useState();
+  const [seats, setSeats] = useState(0);
+  const [Booked, setBooked] = useState(bookedSeat);
+  const [nameList, setNameList] = useState(nameSeat);
 
   useEffect(() => {
-    const localName = window.localStorage.getItem("name");
-    if (localName) {
-      setName(localName);
-    }
-    const localSeats = window.localStorage.getItem("seats");
-    if (localSeats) {
-      setSeats(localSeats);
+    if (!seats) {
+      const localName = window.localStorage.getItem("name");
+      if (localName) {
+        setName(localName);
+      }
+      const localSeats = window.localStorage.getItem("seats");
+      if (localSeats) {
+        setSeats(JSON.parse(localSeats));
+      }
     }
   }, []);
+
+  useEffect(() => {
+    const upBook = async () => {
+      try {
+        if (seats && Booked.includes(seats)) {
+          const response = await fetch("/api/upbooklist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: seats,
+          });
+          if (response.ok) {
+            console.log("Book list saved to MongoDB!");
+          } else {
+            console.error("Failed to save book list to MongoDB.");
+          }
+        }
+      } catch (error) {
+        console.error("Error saving book list to MongoDB:", error);
+      }
+    };
+
+    const upload = async () => {
+      try {
+        const data = { name: `${name}`, book: seats };
+        if (data.name && data.book) {
+          const response = await fetch("/api/upnamelist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
+
+          if (response.ok) {
+            console.log("name list saved to MongoDB!");
+          } else {
+            console.error("Failed to save name list to MongoDB.");
+          }
+        }
+      } catch (error) {
+        console.error("Error saving name list to MongoDB:", error);
+      }
+    };
+
+    upBook();
+    upload();
+  }, [seats]);
 
   function clickSeat(seat) {
     if (name) {
       window.alert("이미 자리를 예약하셨습니다.");
     } else {
-      const getName = (seat) => {
+      const getName = async (seat) => {
         const inputName = window.prompt("이름을 입력해주세요: ");
         if (inputName) {
           window.localStorage.setItem("name", inputName);
           setName(inputName);
-          window.localStorage.setItem("seats", seat);
+          window.localStorage.setItem("seats", JSON.stringify(seat));
           setSeats(seat);
         } else {
           window.alert("이름이 입력되지 않았습니다.");
@@ -81,14 +137,14 @@ export default function PageItem() {
                   {row.map(
                     (seat, seatIndex) =>
                       seat !== 0 && (
-                        <div
-                          className={`${styles.seat} ${
-                            seat == seats ? styles.selected : ""
-                          }`}
-                          key={seatIndex}
-                          onClick={() => clickSeat(seat)}
-                        >
-                          {seat == seats ? name : seat}
+                        <div key={seatIndex}>
+                          <Seat
+                            seat={seat}
+                            seats={seats}
+                            name={name}
+                            Booked={Booked}
+                            onClick={() => clickSeat(seat)}
+                          ></Seat>
                         </div>
                       )
                   )}
@@ -97,13 +153,13 @@ export default function PageItem() {
             : line.map((seat, seatIndex) => (
                 <div className={styles.row} key={seatIndex}>
                   {seat !== 0 && (
-                    <div
-                      className={styles.seat}
-                      key={seatIndex}
+                    <Seat
+                      seat={seat}
+                      seats={seats}
+                      name={name}
+                      Booked={Booked}
                       onClick={() => clickSeat(seat)}
-                    >
-                      {seat == seats ? name : seat}
-                    </div>
+                    ></Seat>
                   )}
                 </div>
               ))}
