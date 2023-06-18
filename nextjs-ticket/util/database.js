@@ -1,6 +1,5 @@
 import { MongoClient } from "mongodb";
-const url =
-  "mongodb+srv://ticketer:lsKDyHRcdvt9JPG4@ticketdb.qeboeta.mongodb.net/?retryWrites=true&w=majority";
+const url = process.env.MONGODB_URL;
 const options = { useNewUrlParser: true };
 let connectDB;
 
