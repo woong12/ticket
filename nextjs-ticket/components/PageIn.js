@@ -5,7 +5,9 @@ import Modal from "./Modal";
 import Role from "@/components/Role";
 import { useState } from "react";
 
-export default async function PageIn({ book, name }) {
+export const dynamic = "force-dynamic";
+
+export default function PageIn({ book, name }) {
   const [bookSeat, setBookSeat] = useState(book);
   const [nameSeat, setNameSeat] = useState(name);
 
