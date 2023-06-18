@@ -16,9 +16,7 @@ export default async function handler(req, res) {
       const options = { returnOriginal: false };
       const check = await collection.find(filter, { _id: 0 });
       console.log(check.value);
-      if (check.value.booked.includes(body)) {
-        res.status(404).json({ message: "동시 접속 오류" });
-      } else {
+      if (!check.value.booked.includes(body)) {
         const result = await collection.findOneAndUpdate(
           filter,
           update,
@@ -28,6 +26,8 @@ export default async function handler(req, res) {
         console.log("Modified document:", result.value);
 
         res.status(200).json({ message: "Book list saved to MongoDB!" });
+      } else {
+        res.status(404).json({ message: "동시 접속 오류" });
       }
     } catch (error) {
       console.error("Error saving book list to MongoDB:", error);
