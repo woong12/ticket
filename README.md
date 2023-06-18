@@ -3,8 +3,8 @@
 ## Information
 
 - contrinbutors
-  1. 국재윤 [https://github.com/igiza1213](GitHub)
-  2. 구현웅 [https://github.com/woong12](GitHub)
+  1. 국재윤 [GitHub](https://github.com/igiza1213)
+  2. 구현웅 [GitHub](https://github.com/woong12)
 - 좌석 예약 서비스
 
 ## 기능
