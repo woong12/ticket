@@ -42,11 +42,11 @@ $ npm run dev
 
 ### Config
 
-<img height='25' src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white"/>
+<img height='25' src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/nodemon-76D04B?style=flat-square&logo=nodemon&logoColor=white"/>
 
 ### Development
 
-<img height='25' src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/Next.Js-000000?style=flat-square&logo=Next.Js&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
+<img height='25' src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/Next%2Ejs-000000?style=flat-square&logo=nextdotjs&logoColor=white"/> <img height='25' src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
 
 ### Hosting
 
