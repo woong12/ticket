@@ -86,6 +86,7 @@ export default function PageItem({ bookedSeat, nameSeat }) {
     const upload = async () => {
       try {
         const data = { name: `${name}`, book: seats };
+        console.log(data);
         if (
           data.name &&
           data.book &&
