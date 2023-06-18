@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import styles from "./pageItem.module.css";
+import Seat from "./Seat";
 
-export default function PageItem() {
+export default function PageItem(bookedSeat) {
   const seatLayout = [
     [1, 0, 14, 21, 28, 0, 40, 45],
     [
@@ -40,6 +41,7 @@ export default function PageItem() {
 
   const [name, setName] = useState("");
   const [seats, setSeats] = useState();
+  const [Booked, setBooked] = useState(JSON.parse(bookedSeat.bookedSeat.value));
 
   useEffect(() => {
     const localName = window.localStorage.getItem("name");
@@ -81,14 +83,14 @@ export default function PageItem() {
                   {row.map(
                     (seat, seatIndex) =>
                       seat !== 0 && (
-                        <div
-                          className={`${styles.seat} ${
-                            seat == seats ? styles.selected : ""
-                          }`}
-                          key={seatIndex}
-                          onClick={() => clickSeat(seat)}
-                        >
-                          {seat == seats ? name : seat}
+                        <div key={seatIndex}>
+                          <Seat
+                            seat={seat}
+                            seats={seats}
+                            name={name}
+                            Booked={Booked}
+                            onClick={() => clickSeat(seat)}
+                          ></Seat>
                         </div>
                       )
                   )}
@@ -97,13 +99,13 @@ export default function PageItem() {
             : line.map((seat, seatIndex) => (
                 <div className={styles.row} key={seatIndex}>
                   {seat !== 0 && (
-                    <div
-                      className={styles.seat}
-                      key={seatIndex}
+                    <Seat
+                      seat={seat}
+                      seats={seats}
+                      name={name}
+                      Booked={Booked}
                       onClick={() => clickSeat(seat)}
-                    >
-                      {seat == seats ? name : seat}
-                    </div>
+                    ></Seat>
                   )}
                 </div>
               ))}
