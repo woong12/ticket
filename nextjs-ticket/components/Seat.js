@@ -12,11 +12,10 @@ export default function Seat({ seat, seats, name, Booked, onClick }) {
       setLocalSeats(window.localStorage.getItem("seats"));
     };
     checkBooked();
-  }, [localseats, name]);
+  }, [name]);
 
   const handleClick = () => {
     if (!isBooked && seat != localseats) {
-      console.log(!(seat == localseats));
       onClick(seat);
     }
   };
