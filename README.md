@@ -59,3 +59,7 @@ $ npm run dev
 ---
 
 ## Screens
+
+---
+
+[vercel주소](https://seats-ticket-f985.vercel.app/)
