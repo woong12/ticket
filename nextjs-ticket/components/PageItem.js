@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import styles from "./pageItem.module.css";
 import Seat from "./Seat";
 
+export const dynamic = "force-dynamic";
+
 export default function PageItem({ bookedSeat, nameSeat }) {
   const seatLayout = [
     [1, 0, 14, 21, 28, 0, 40, 45],
