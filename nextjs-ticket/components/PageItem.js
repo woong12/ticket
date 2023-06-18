@@ -62,7 +62,7 @@ export default function PageItem({ bookedSeat, nameSeat }) {
   useEffect(() => {
     const upBook = async () => {
       try {
-        if (seats && Booked.includes(seats)) {
+        if (seats && !Booked.includes(seats)) {
           const response = await fetch("/api/upbooklist", {
             method: "POST",
             headers: {
@@ -84,13 +84,19 @@ export default function PageItem({ bookedSeat, nameSeat }) {
     const upload = async () => {
       try {
         const data = { name: `${name}`, book: seats };
-        if (data.name && data.book) {
+        console.log(data);
+        if (
+          data.name &&
+          data.book &&
+          !nameList.includes(name) &&
+          !Booked.includes(seats)
+        ) {
           const response = await fetch("/api/upnamelist", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: data,
+            body: JSON.stringify(data),
           });
 
           if (response.ok) {
