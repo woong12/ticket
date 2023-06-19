@@ -56,7 +56,7 @@ export default function Modal() {
         <button
           onClick={() => {
             setStudent("next");
-            router.reload();
+            router.refresh();
           }}
         >
           관리자
