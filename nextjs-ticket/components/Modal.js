@@ -27,6 +27,7 @@ export default function Modal() {
     const newStudent = "student";
     setStudent(newStudent);
     window.localStorage.setItem("student", newStudent);
+    router.refresh();
   };
 
   const checkAdmin = () => {
@@ -34,6 +35,7 @@ export default function Modal() {
       const newStudent = "admin";
       setStudent(newStudent);
       window.localStorage.setItem("student", newStudent);
+      router.refresh();
     } else {
       window.alert("비밀번호가 맞지 않습니다.");
     }
@@ -55,7 +57,6 @@ export default function Modal() {
         <button
           onClick={() => {
             checkStudent();
-            router.refresh();
           }}
         >
           학생
@@ -73,11 +74,9 @@ export default function Modal() {
             placeholder="비밀번호 입력"
             onChange={onChange}
           />
-          router.refresh();
           <button
             onClick={() => {
               checkAdmin();
-              router.refresh();
             }}
           >
             확인
