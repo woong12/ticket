@@ -30,9 +30,8 @@ export default function PageIn({ book, name }) {
             <div className={styles.top}>
               <span className={styles.left}>1 강의실</span>
               <div className={styles.board}>모니터</div>
-              <span className={styles.right}>
-                목요일 황성찬T 비교형 수업 신청
-              </span>
+              <span className={styles.right}>목요일 황성찬T</span>
+              <span className={styles.right2}>비교형 수업 신청</span>
             </div>
           </div>
           <main className={styles.main}>
