@@ -47,7 +47,6 @@ export default function PageItem({ bookedSeat, nameSeat }) {
   const [seats, setSeats] = useState(0);
   const [Booked, setBooked] = useState(bookedSeat);
   const [nameList, setNameList] = useState(nameSeat);
-
   useEffect(() => {
     if (!seats) {
       const localName = window.localStorage.getItem("name");
@@ -151,6 +150,7 @@ export default function PageItem({ bookedSeat, nameSeat }) {
                             seats={seats}
                             name={name}
                             Booked={Booked}
+                            nameSeat={nameList}
                             onClick={() => clickSeat(seat)}
                           ></Seat>
                         </div>
@@ -166,6 +166,7 @@ export default function PageItem({ bookedSeat, nameSeat }) {
                       seats={seats}
                       name={name}
                       Booked={Booked}
+                      nameSeat={nameList}
                       onClick={() => clickSeat(seat)}
                     ></Seat>
                   )}

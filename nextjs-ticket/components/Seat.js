@@ -1,9 +1,31 @@
 import { useEffect, useState } from "react";
 import styles from "./seat.module.css";
 
-export default function Seat({ seat, seats, name, Booked, onClick }) {
+export default function Seat({ seat, seats, name, Booked, onClick, nameSeat }) {
   const [isBooked, setIsBooked] = useState(false);
   const [localseats, setLocalSeats] = useState(seats);
+  const [isStudent, setIsStudent] = useState("student");
+  const [nameList, setNameList] = useState(nameSeat);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    const check = window.localStorage.getItem("student");
+    if (check) {
+      setIsStudent(check);
+    }
+
+    const booksValue = "books"; // 예시로 'books' 값을 사용했습니다.
+
+    let nameValue = "";
+
+    for (let i = 0; i < nameList.length; i++) {
+      if (seat === nameList[i][booksValue]) {
+        nameValue = nameList[i].name;
+        break; // 동일한 값이 있는 경우, 더 이상 반복하지 않고 종료합니다.
+      }
+    }
+    setValue(nameValue);
+  }, []);
 
   useEffect(() => {
     const checkBooked = () => {
@@ -30,7 +52,13 @@ export default function Seat({ seat, seats, name, Booked, onClick }) {
       }`}
       onClick={() => handleClick(seat)}
     >
-      {seat == localseats ? name : seat}
+      {isStudent == "student"
+        ? seat == localseats
+          ? name
+          : seat
+        : value
+        ? value
+        : seat}
     </div>
   );
 }
