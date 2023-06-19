@@ -28,9 +28,21 @@ body {
 .board {
   border: 1px solid black;
   font-size: 1.5rem;
-  padding: 0.5rem 9rem;
+  padding: 0.5rem 5rem;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.right {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.left {
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 .active {
