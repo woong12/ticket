@@ -19,7 +19,7 @@
   width: 45rem;
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
   justify-content: center;
   align-items: center;
 }
@@ -43,6 +43,7 @@
   left: 20px;
   top: 20px;
 }
+
 .reset {
   position: absolute;
   top: 25px;
