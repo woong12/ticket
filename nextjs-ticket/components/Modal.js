@@ -1,14 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { useEffect, useState } from "react";
 import styles from "./modal.module.css";
 
 export default function Modal() {
   const [student, setStudent] = useState("init");
   const [value, setValue] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
     const students = window.localStorage.getItem("student");
@@ -27,7 +24,6 @@ export default function Modal() {
     const newStudent = "student";
     setStudent(newStudent);
     window.localStorage.setItem("student", newStudent);
-    router.refresh();
   };
 
   const checkAdmin = () => {
@@ -35,7 +31,6 @@ export default function Modal() {
       const newStudent = "admin";
       setStudent(newStudent);
       window.localStorage.setItem("student", newStudent);
-      router.push("/");
     } else {
       window.alert("비밀번호가 맞지 않습니다.");
     }
