@@ -32,6 +32,39 @@
   margin-top: 20px;
 }
 
+.right {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.left {
+  right: absolute;
+  left: 20px;
+  top: 20px;
+}
+.reset {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.reset:hover {
+  transform: scale(1.05);
+}
+
+.resetBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  background-color: #9575de;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+}
+
 .active {
   display: flex;
   flex-direction: column;

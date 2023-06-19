@@ -17,8 +17,21 @@ export default function PageIn({ book, name }) {
       <div className={styles.container}>
         <div className={styles.page}>
           <div className={styles.nav}>
-            <div className={styles.board}>칠판</div>
-            <span>화요일 김현수T 요약형 수업 신청</span>
+            <div className={styles.reset}>
+              <button
+                className={styles.resetBtn}
+                onClick={() => {
+                  window.localStorage.clear();
+                }}
+              >
+                reset
+              </button>
+            </div>
+            <span className={styles.left}>1강의실</span>
+            <div className={styles.board}>모니터</div>
+            <span className={styles.right}>
+              목요일 황성찬T 비교형 수업 신청
+            </span>
           </div>
           <main className={styles.main}>
             <PageItem bookedSeat={bookSeat} nameSeat={nameSeat}></PageItem>
