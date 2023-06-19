@@ -26,7 +26,7 @@ export default function Seat({ seat, seats, name, Booked, onClick, nameSeat }) {
     }
     setValue(nameValue);
   }, []);
-
+  
   useEffect(() => {
     const checkBooked = () => {
       const isBooked = Booked.includes(seat);

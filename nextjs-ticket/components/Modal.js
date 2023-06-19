@@ -1,11 +1,14 @@
 "use client";
 
+import { useRouter } from "next/router";
+
 import { useEffect, useState } from "react";
 import styles from "./modal.module.css";
 
 export default function Modal() {
   const [student, setStudent] = useState("init");
   const [value, setValue] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const students = window.localStorage.getItem("student");
@@ -50,7 +53,14 @@ export default function Modal() {
       <div className={styles.popup_content}>
         <h2>사용자 선택</h2>
         <button onClick={() => checkStudent()}>학생</button>
-        <button onClick={() => setStudent("next")}>관리자</button>
+        <button
+          onClick={() => {
+            setStudent("next");
+            router.reload();
+          }}
+        >
+          관리자
+        </button>
         <div
           id="adminPasswordInput"
           style={{ display: student === "next" ? "block" : "none" }}
