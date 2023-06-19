@@ -6,7 +6,6 @@ import styles from "./modal.module.css";
 export default function Modal() {
   let router = useRouter();
 
-
   const [student, setStudent] = useState("init");
   const [value, setValue] = useState("");
 
@@ -30,7 +29,7 @@ export default function Modal() {
   };
 
   const checkAdmin = () => {
-    if (value === "1234") {
+    if (value == "8475") {
       const newStudent = "admin";
       setStudent(newStudent);
       window.localStorage.setItem("student", newStudent);
@@ -75,7 +74,7 @@ export default function Modal() {
           <button
             onClick={() => {
               checkAdmin();
-              console.log("refreshed")
+              console.log("refreshed");
               router.refresh();
             }}
           >
