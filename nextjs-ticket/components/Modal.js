@@ -1,9 +1,12 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./modal.module.css";
 
 export default function Modal() {
+  let router = useRouter();
+
+
   const [student, setStudent] = useState("init");
   const [value, setValue] = useState("");
 
@@ -72,6 +75,8 @@ export default function Modal() {
           <button
             onClick={() => {
               checkAdmin();
+              console.log("refreshed")
+              router.refresh();
             }}
           >
             확인
