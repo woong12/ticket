@@ -18,6 +18,7 @@ export default function PageIn({ book, name }) {
         <div className={styles.page}>
           <div className={styles.nav}>
             <div className={styles.board}>칠판</div>
+            <span>화요일 김현수T 요약형 수업 신청</span>
           </div>
           <main className={styles.main}>
             <PageItem bookedSeat={bookSeat} nameSeat={nameSeat}></PageItem>
