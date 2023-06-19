@@ -52,15 +52,15 @@ export default function Modal() {
     >
       <div className={styles.popup_content}>
         <h2>사용자 선택</h2>
-        <button onClick={() => checkStudent()}>학생</button>
         <button
           onClick={() => {
-            setStudent("next");
+            checkStudent();
             router.refresh();
           }}
         >
-          관리자
+          학생
         </button>
+        <button onClick={() => setStudent("next")}>관리자</button>
         <div
           id="adminPasswordInput"
           style={{ display: student === "next" ? "block" : "none" }}
@@ -73,7 +73,15 @@ export default function Modal() {
             placeholder="비밀번호 입력"
             onChange={onChange}
           />
-          <button onClick={() => checkAdmin()}>확인</button>
+          router.refresh();
+          <button
+            onClick={() => {
+              checkAdmin();
+              router.refresh();
+            }}
+          >
+            확인
+          </button>
         </div>
       </div>
     </div>
