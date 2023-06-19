@@ -35,7 +35,7 @@ export default function Modal() {
       const newStudent = "admin";
       setStudent(newStudent);
       window.localStorage.setItem("student", newStudent);
-      router.refresh();
+      router.push("/");
     } else {
       window.alert("비밀번호가 맞지 않습니다.");
     }
