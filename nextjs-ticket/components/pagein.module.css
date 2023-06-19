@@ -35,21 +35,22 @@
 .board {
   border: 1px solid black;
   font-size: 1.5rem;
-  padding: 0.5rem 9rem;
+  padding: 0.5rem 6rem;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .right {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 10px;
+  top: 10px;
+  width: 50%;
 }
 
 .left {
   right: absolute;
-  left: 20px;
-  top: 20px;
+  left: 10px;
+  top: 10px;
 }
 
 .reset {
